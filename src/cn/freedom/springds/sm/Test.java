@@ -22,6 +22,7 @@ public class Test {
 //		userMapper.deleteUser(5);
 //		userMapper.insertUser(user);
 		userMapper.updateUser(user);
+		
 	}
 
 }
