@@ -3,6 +3,8 @@ package cn.freedom.springds.sm;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import cn.freedom.springds.mapper.RoleMapper;
+import cn.freedom.springds.mapper.UserMapper;
 import cn.freedom.springds.pojo.User;
 
 public class Test {
@@ -16,8 +18,10 @@ public class Test {
 		System.out.println(roleMapper.findRoleById(1).getRoleName());
 		System.out.println(userMapper.findUserById(4).getUserName());
 		
-		User user = new User(5, "shi", "hahaha", "male", "19999999", "108@qq.com", "ycycyc");
-		userMapper.deleteUser(5);
+		User user = new User(5, "shilongfei", "hahaha", "male", "19999999", "108@qq.com", "ycycyc");
+//		userMapper.deleteUser(5);
+//		userMapper.insertUser(user);
+		userMapper.updateUser(user);
 	}
 
 }

@@ -1,4 +1,4 @@
-package cn.freedom.springds.sm;
+package cn.freedom.springds.mapper;
 
 import cn.freedom.springds.pojo.Role;
 

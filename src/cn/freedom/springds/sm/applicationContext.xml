@@ -26,12 +26,12 @@
 	</bean>
 	
 	<bean id = "roleMapper" class = "org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="cn.freedom.springds.sm.RoleMapper"/>
+		<property name="mapperInterface" value="cn.freedom.springds.mapper.RoleMapper"/>
 		<property name="SqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="cn.freedom.springds.sm"/>
+		<property name="basePackage" value="cn.freedom.springds.mapper"/>
 		<property name="SqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 		<property name="annotationClass" value="org.springframework.stereotype.Repository"></property>
 	</bean>
