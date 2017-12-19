@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://www.springframework.org/schema/beans/context 
+       http://www.springframework.org/schema/beans/spring-context.xsd 
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+       
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/ssm"/>
+		<property name="username" value="root"/>
+		<property name="password" value="shilongfei"/>
+		<property name="maxActive" value="255"/>
+		<property name="maxIdle" value="5"/>
+		<property name="maxWait" value="10000"/>
+	</bean>
+	
+	<bean id = "sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
+		<property name = "dataSource" ref = "dataSource"/>
+		<property name = "configLocation" value = "classpath:/cn/freedom/springds/sm/mybatis-config.xml"/>
+	</bean>
+	
+	<bean id = "roleMapper" class = "org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="cn.freedom.springds.sm.RoleMapper"/>
+		<property name="SqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="cn.freedom.springds.sm"/>
+		<property name="SqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+		<property name="annotationClass" value="org.springframework.stereotype.Repository"></property>
+	</bean>
+	
+</beans>
